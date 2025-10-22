@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>따뜻함이 살아있는 샤브샤브의 유혹 | 프리미엄 샤브샤브</title>
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 'Inter' 대신 더 부드럽고 식욕을 돋우는 폰트를 사용할 수 있도록 fallback 설정 */
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #fcfcfc;
+        }
+
+        /* 비디오 쇼케이스에 사용되던 기존 비디오 컨테이너 스타일 유지 */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 유지 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 샤브샤브의 따뜻함을 표현하는 붉은 계열 색상 */
+        .primary-color {
+            background-color: #e53e3e; /* Red-600 */
+        }
+        .text-primary-color {
+            color: #c53030; /* Red-700 */
+        }
+
+        /* ===== 배경 비디오를 위한 새로운 스타일 ===== */
+        .hero-video-wrapper {
+            position: relative;
+            overflow: hidden;
+            /* 배경색을 지정하여 비디오의 불투명도 조절 시 베이스 컬러를 유지 */
+            background-color: #e53e3e; /* primary-color */
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0; /* 텍스트보다 아래에 위치 */
+            transform: translate(-50%, -50%);
+            opacity: 0.15; /* 불투명하게 설정 */
+            pointer-events: none; /* 비디오가 텍스트 클릭을 막지 않도록 설정 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 헤더 섹션 -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-primary-color tracking-tight">
+                🔥 샤브샤브의 정석
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+                <a href="#intro" class="hover:text-primary-color transition duration-150">소개</a>
+                <a href="#videos" class="hover:text-primary-color transition duration-150">영상 광고</a>
+                <a href="#contact" class="hover:text-primary-color transition duration-150">문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 (배경 비디오 삽입) -->
+    <section id="intro" class="text-white py-16 sm:py-24 hero-video-wrapper">
+
+        <!-- 배경 비디오 (vid01.mp4) -->
+        <!-- controls를 제거하고 autoplay, muted, loop, playsinline을 설정 -->
+        <video id="bgVid01" autoplay muted loop playsinline class="hero-video">
+            <source src="vid01.mp4" type="video/mp4">
+            브라우저가 백그라운드 비디오를 지원하지 않습니다. (vid01.mp4)
+        </video>
+
+        <!-- 텍스트 내용 (z-index를 높여 비디오 위에 표시) -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <p class="text-xl font-semibold mb-4 opacity-90">추운 날씨, 따뜻한 위로</p>
+            <h2 class="text-5xl sm:text-7xl font-black mb-8 leading-tight">
+                프리미엄 재료로 완성한 <span class="block lg:inline-block">샤브샤브, 지금 만나보세요!</span>
+            </h2>
+            <p class="text-lg mb-10 max-w-3xl mx-auto opacity-90">
+                신선한 채소와 육즙 가득한 소고기, 깊고 진한 육수가 만나 최고의 맛을 선사합니다.
+                영상을 통해 생생한 경험을 미리 확인해 보세요!
+            </p>
+            <a href="#videos" class="bg-white text-primary-color font-bold py-3 px-8 rounded-full shadow-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
+                <span>광고 영상 바로 보기</span>
+                <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"></path></svg>
+            </a>
+        </div>
+        <!-- 텍스트 대비를 위한 미세한 오버레이 추가 -->
+        <div class="absolute inset-0 bg-red-800 opacity-20 z-0 pointer-events-none"></div>
+    </section>
+
+    <!-- 비디오 쇼케이스 섹션 -->
+    <section id="videos" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-extrabold text-gray-800 mb-4">✨ 생생한 샤브샤브의 순간</h3>
+                <!-- 비디오 1이 배경으로 이동했으므로 2개만 표시 -->
+                <p class="text-lg text-gray-600">남은 2가지 핵심 비디오 클립들을 확인해 보세요.</p>
+                <p class="text-sm text-red-500 mt-2 font-medium">
+                    <!-- 비디오 파일 경로 안내 -->
+                    ※ 비디오 파일은 사용자님의 로컬 파일 경로를 기준으로 설정되었습니다.
+                    실제 비디오(vid02.mp4, vid03.mp4)를 해당 위치에 넣어주세요.
+                </p>
+            </div>
+
+            <!-- 2개의 비디오 카드 레이아웃 (vid01은 배경으로 이동) -->
+            <!-- 중앙 정렬을 위해 md:grid-cols-2로 변경하고 max-w를 줄였습니다. -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <!-- 비디오 1 (구 비디오 2): 육수와 조리 과정 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="video-container">
+                        <!-- 실제 vid02.mp4 파일을 사용해야 합니다. -->
+                        <video id="vid02" controls loop playsinline poster="https://placehold.co/1280x720/FEE2E2/B91C1C?text=비디오+02%0A(육수+조리)">
+                            <source src="vid02.mp4" type="video/mp4">
+                            죄송합니다. 귀하의 브라우저는 비디오 태그를 지원하지 않습니다. (vid02.mp4)
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-2">1. 깊고 진한 육수</h4>
+                        <p class="text-gray-600">정성껏 우려낸 육수에 재료를 살짝 데쳐 풍미를 극대화합니다. 끓는 소리를 들어보세요!</p>
+                    </div>
+                </div>
+
+                <!-- 비디오 2 (구 비디오 3): 식사 장면과 마무리 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="video-container">
+                        <!-- 실제 vid03.mp4 파일을 사용해야 합니다. -->
+                        <video id="vid03" controls loop playsinline poster="https://placehold.co/1280x720/FEE2E2/B91C1C?text=비디오+03%0A(맛있는+마무리)">
+                            <source src="vid03.mp4" type="video/mp4">
+                            죄송합니다. 귀하의 브라우저는 비디오 태그를 지원하지 않습니다. (vid03.mp4)
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-2">2. 완벽한 한입</h4>
+                        <p class="text-gray-600">소스에 찍어먹는 순간! 보는 것만으로도 행복해지는 식사 장면을 담았습니다.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 추가 정보 및 CTA 섹션 -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl font-extrabold text-gray-800 mb-4">지금 바로 샤브샤브를 즐겨보세요!</h3>
+            <p class="text-xl text-gray-600 mb-8">영상이 마음에 드셨다면, 가까운 매장을 방문하거나 온라인으로 주문해 보세요.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <button class="primary-color text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105">
+                    가까운 매장 찾기
+                </button>
+                <button class="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-gray-300 transition duration-300 transform hover:scale-105">
+                    온라인 주문하기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer id="contact" class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg font-semibold mb-2">프리미엄 샤브샤브 홍보 페이지</p>
+            <p class="text-sm text-gray-400">문의: 1234-5678 | 이메일: info@shabu.com</p>
+            <p class="text-xs text-gray-500 mt-4">&copy; 2025 ShabuShabu Promotion. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 비디오 자동 재생 처리 (브라우저 정책에 따라 제한될 수 있음)
+        document.addEventListener('DOMContentLoaded', () => {
+            // 배경 비디오 ID를 'bgVid01'로 변경하고 자동 재생 로직을 적용
+            const bgVid01 = document.getElementById('bgVid01');
+            // 배경 비디오는 음소거(muted), 루프(loop), 인라인 재생(playsinline)으로 설정
+            if (bgVid01) {
+                bgVid01.play().catch(error => {
+                    console.log("자동 재생이 차단되었습니다:", error);
+                    // 자동 재생 실패 시 사용자에게 알림 메시지를 표시하는 UI를 추가할 수 있습니다.
+                });
+            }
+        });
+
+        // 스크롤 시 부드러운 이동 (Smooth Scrolling)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
